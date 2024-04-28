@@ -1,0 +1,44 @@
+<!-- <div class="card bg-dark rounded" id="list-post-{{feed_post.post.id}}">
+    <div class="card-header text-light d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img appHideMissingPicture title="L'avatar de {{feed_post.post.user.username}}" alt="L'avatar de {{feed_post.post.user.username}}" *ngIf="feed_post.post.user.avatar == null" src="assets/icones/avatar.png" class="card-avatar rounded-circle border-3 ">
+        <img appHideMissingPicture title="L'avatar de {{feed_post.post.user.username}}" alt="L'avatar de {{feed_post.post.user.username}}" *ngIf="feed_post.post.user.avatar != null" src="{{feed_post.post.user.avatar}}" class="card-avatar rounded-circle border-3 ">
+        <div class="margin-l10">
+          <a class="font-etna text-light" routerLink="/profil/{{feed_post.post.user.id}}">{{feed_post.post.user.username | titlecase}}</a>
+          <p class="text-muted">{{feed_post.post.createdAt | displaydate:false:true}}
+          </p>
+        </div>
+      </div>
+      <div>
+        <a (click)="signalPost(feed_post.post.id,feed_post.post.user.username)" type="button" class="" data-toggle="tooltip" data-placement="top" title="Signaler ce post" >
+          <svg id="card-icon-detail" style="height:30px;width:30px;margin-right:10px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="stroke-white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12a5 5 0 0 1 5-5v0a5 5 0 0 1 5 5v6H7v-6Z"></path><path d="M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2H5v-2Z"></path><path d="M21 12h1"></path><path d="M18.5 4.5 18 5"></path><path d="M2 12h1"></path><path d="M12 2v1"></path><path d="m4.929 4.929.707.707"></path><path d="M12 12v6"></path></svg>
+        </a>
+      </div>
+    </div>
+    <img appHideMissingPicture title="Image du post" alt="Image du post" *ngIf="feed_post.post.listmedias[0]" id="img-post" class="card-img-top cursor-pointer" (click)="showDetail(feed_post.post)" src="{{feed_post.post.listmedias[0]}}" target="_blank">
+    <div class="card-body scrollbar">
+      <span (click)="showDetail(feed_post.post)" class="cursor-pointer text-muted font-italic" *ngIf="feed_post.post.isGeolocated && !feed_post.post.localisation.label">
+        <svg class="stroke-satellearth" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        A {{feed_post.post.longitude.toFixed(2)}}°,{{feed_post.post.latitude.toFixed(2)}}°
+      </span>
+      <span (click)="showDetail(feed_post.post)" class="cursor-pointer text-muted font-italic" *ngIf="feed_post.post.isGeolocated && feed_post.post.localisation.label">
+        <svg class="stroke-satellearth" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        A {{feed_post.post.localisation.label}}
+      </span>
+      <p class="text-sm text-light align-middle d-flex align-items-center">
+      </p>
+      <p class="text-light">{{feed_post.post.description | slice:0:50 }}
+        <span class="cursor-pointer margin-r0 text-muted" *ngIf="feed_post.post.description.length > 50" (click)="showDetail(feed_post.post)">... Voir plus</span>
+      </p>
+    </div>
+    <div *ngIf="feed_post.post.sharedContent != null" class="">
+      <app-external-share [content]="feed_post.post.sharedContent"></app-external-share>
+    </div>
+    <div class="card-footer text-muted">
+      <span *ngFor="let hashtag of feed_post.post.hashtags" class="badge badge-pill mr-1 text-wrap" >#{{hashtag}}</span>
+    </div>
+    <app-comment-space [short]="true" [id]="feed_post.post.id" [comments]="feed_post.post.comments" [type]="'post'"></app-comment-space>
+  </div> -->
+  <div>
+    <img src="{{postPicture}}" />
+  </div>
