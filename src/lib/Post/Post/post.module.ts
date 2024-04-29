@@ -1,24 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostComponent } from './post.component';
-import { PostAvatarComponent } from '../PostAvatar/post-avatar.component';
-import { PostUserComponent } from '../PostUser/postuser/post-user.component';
-
-
+import { SMPostComponent } from './post.component';
+import { SMPostAvatarComponent } from '../PostAvatar/post-avatar.component';
+import { SMPostUserComponent } from '../PostUser/postuser/post-user.component';
 
 @NgModule({
   declarations: [
-    PostComponent,
-    PostAvatarComponent,
-    PostUserComponent
+    SMPostComponent,
+    SMPostAvatarComponent,
+    SMPostUserComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    PostComponent,
-    PostAvatarComponent,
-    PostUserComponent
+    SMPostComponent,
+    SMPostAvatarComponent,
+    SMPostUserComponent
   ]
 })
 export class PostModule { }
