@@ -39,6 +39,6 @@
     </div>
     <app-comment-space [short]="true" [id]="feed_post.post.id" [comments]="feed_post.post.comments" [type]="'post'"></app-comment-space>
   </div> -->
-  <div>
-    <img src="{{postPicture}}" />
+  <div style="max-width: 500px;margin-left: auto; margin-right: auto;">
+    <ng-content></ng-content>
   </div>
