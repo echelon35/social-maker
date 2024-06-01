@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { SMPostComponent } from './post.component';
 import { SMPostAvatarComponent } from '../PostAvatar/post-avatar.component';
 import { SMPostUserComponent } from '../PostUser/postuser/post-user.component';
+import { SMPostContentComponent } from '../PostContent/post-content.component';
 
 @NgModule({
   declarations: [
     SMPostComponent,
     SMPostAvatarComponent,
-    SMPostUserComponent
+    SMPostUserComponent,
+    SMPostContentComponent
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { SMPostUserComponent } from '../PostUser/postuser/post-user.component';
   exports: [
     SMPostComponent,
     SMPostAvatarComponent,
-    SMPostUserComponent
+    SMPostUserComponent,
+    SMPostContentComponent
   ]
 })
 export class PostModule { }

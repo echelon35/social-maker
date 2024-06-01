@@ -3,7 +3,6 @@ import { SocialMakerComponent } from './social-maker.component';
 import { PostModule } from './Post/Post/post.module';
 
 
-
 @NgModule({
   declarations: [
     SocialMakerComponent,
