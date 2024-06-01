@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SMPostUserComponent } from './post-user.component';
+import { SMPostHeaderComponent } from './post-header.component';
 
 describe('PostuserComponent', () => {
-  let component: SMPostUserComponent;
-  let fixture: ComponentFixture<SMPostUserComponent>;
+  let component: SMPostHeaderComponent;
+  let fixture: ComponentFixture<SMPostHeaderComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SMPostUserComponent]
+      declarations: [SMPostHeaderComponent]
     });
-    fixture = TestBed.createComponent(SMPostUserComponent);
+    fixture = TestBed.createComponent(SMPostHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

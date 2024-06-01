@@ -1,0 +1,21 @@
+<div class="dropdown">
+    <!-- three dots -->
+    <ul class="dropbtn icons btn-right showLeft" (click)="showDropdown()">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!-- menu -->
+    <div id="{{name}}" class="dropdown-content">
+        <div class="dropdown-item" *ngFor="let item of options" >
+            {{item.icon}}
+            <div class="dropdown-icon">
+                <img *ngIf="item.srcIcon && item.srcIcon != ''" src="{{item.srcIcon}}" />
+            </div>
+            <p>{{item.label}}</p>
+        </div>
+        <!-- <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a> -->
+    </div>
+</div>

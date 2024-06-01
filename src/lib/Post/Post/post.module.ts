@@ -2,23 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SMPostComponent } from './post.component';
 import { SMPostAvatarComponent } from '../PostAvatar/post-avatar.component';
-import { SMPostUserComponent } from '../PostUser/postuser/post-user.component';
+import { SMPostHeaderComponent } from '../PostHeader/post-header.component';
 import { SMPostContentComponent } from '../PostContent/post-content.component';
+import { GlobalModule } from '../../Global/global.module';
 
 @NgModule({
   declarations: [
     SMPostComponent,
+    SMPostHeaderComponent,
     SMPostAvatarComponent,
-    SMPostUserComponent,
     SMPostContentComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    GlobalModule
   ],
   exports: [
     SMPostComponent,
     SMPostAvatarComponent,
-    SMPostUserComponent,
+    SMPostHeaderComponent,
     SMPostContentComponent
   ]
 })

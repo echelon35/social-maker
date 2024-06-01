@@ -1,6 +1,6 @@
 import { Component, Input, Optional } from '@angular/core';
 import { SMPostComponent } from '../Post/post.component';
-import { SMPostUserComponent } from '../PostUser/postuser/post-user.component';
+import { SMPostHeaderComponent } from '../PostHeader/post-header.component';
 
 enum AvatarShape {
   round = 'round',
@@ -17,7 +17,7 @@ export class SMPostAvatarComponent {
   @Input() avatarShape: AvatarShape = AvatarShape.round;
   @Input() avatarLink: string = '';
 
-  constructor(@Optional() postUser: SMPostUserComponent){
+  constructor(@Optional() postUser: SMPostHeaderComponent){
     if (postUser === null){
       throw new Error("PostAvatar can only be used inside of PostUser")
     }
