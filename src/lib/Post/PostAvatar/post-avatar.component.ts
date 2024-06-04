@@ -1,5 +1,4 @@
 import { Component, Input, Optional } from '@angular/core';
-import { SMPostComponent } from '../Post/post.component';
 import { SMPostHeaderComponent } from '../PostHeader/post-header.component';
 
 enum AvatarShape {
@@ -14,8 +13,9 @@ enum AvatarShape {
 })
 export class SMPostAvatarComponent {
   @Input() avatarPath: string;
-  @Input() avatarShape: AvatarShape = AvatarShape.round;
+  @Input() avatarShape: keyof typeof AvatarShape = 'round';
   @Input() avatarLink: string = '';
+  @Input() onErrorAvatarPath: string;
 
   constructor(@Optional() postUser: SMPostHeaderComponent){
     if (postUser === null){
@@ -26,5 +26,6 @@ export class SMPostAvatarComponent {
 
   ngOnInit(){
     console.log(this.avatarPath);
+    console.log(this.onErrorAvatarPath);
   }
 }

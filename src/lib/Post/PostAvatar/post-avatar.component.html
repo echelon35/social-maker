@@ -1,1 +1,1 @@
-<div *ngIf="this.avatarPath" style="width:40px;height:40px;border-radius:50%;background-size: cover;" [ngStyle]="{'background-image': 'url(' + this.avatarPath + ')'}"></div>
+<img style="width:40px;height:40px;border-radius:50%;object-fit: cover;" appHideMissingPicture [picturePath]="this.onErrorAvatarPath" src="{{this.avatarPath}}" />

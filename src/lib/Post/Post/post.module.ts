@@ -6,6 +6,7 @@ import { SMPostHeaderComponent } from '../PostHeader/post-header.component';
 import { SMPostContentComponent } from '../PostContent/post-content.component';
 import { GlobalModule } from '../../Global/global.module';
 import { PostUsernameComponent } from '../PostUsername/post-username.component';
+import { DirectiveModule } from '../../Directives/directive.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PostUsernameComponent } from '../PostUsername/post-username.component';
   ],
   imports: [
     CommonModule,
-    GlobalModule
+    GlobalModule,
+    DirectiveModule
   ],
   exports: [
     SMPostComponent,

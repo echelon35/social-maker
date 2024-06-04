@@ -4,13 +4,13 @@ import { ThreeDotsComponent } from './three-dots/three-dots.component';
 
 @NgModule({
   declarations: [
-    ThreeDotsComponent
+    ThreeDotsComponent,
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    ThreeDotsComponent
+    ThreeDotsComponent,
   ]
 })
 export class GlobalModule { }
