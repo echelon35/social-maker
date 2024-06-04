@@ -7,7 +7,7 @@ import { SMPostComponent } from '../Post/post.component';
   styleUrls: ['./post-content.component.css']
 })
 export class SMPostContentComponent {
-  @Input() pictureSrc: string;
+  @Input() postContent: any;
 
   constructor(post: SMPostComponent){
     if (post === null){

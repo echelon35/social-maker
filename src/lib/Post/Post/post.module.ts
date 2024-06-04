@@ -7,6 +7,9 @@ import { SMPostContentComponent } from '../PostContent/post-content.component';
 import { GlobalModule } from '../../Global/global.module';
 import { PostUsernameComponent } from '../PostUsername/post-username.component';
 import { DirectiveModule } from '../../Directives/directive.module';
+import { PostPictureComponent } from '../PostPicture/post-picture.component';
+import { PostVideoComponent } from '../PostVideo/post-video.component';
+import { PostCommentsComponent } from '../PostComments/post-comments.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { DirectiveModule } from '../../Directives/directive.module';
     SMPostAvatarComponent,
     SMPostContentComponent,
     PostUsernameComponent,
+    PostPictureComponent,
+    PostVideoComponent,
+    PostCommentsComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +32,10 @@ import { DirectiveModule } from '../../Directives/directive.module';
     SMPostAvatarComponent,
     SMPostHeaderComponent,
     SMPostContentComponent,
-    PostUsernameComponent
+    PostUsernameComponent,
+    PostPictureComponent,
+    PostVideoComponent,
+    PostCommentsComponent
   ]
 })
 export class PostModule { }
