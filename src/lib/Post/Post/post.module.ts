@@ -5,13 +5,15 @@ import { SMPostAvatarComponent } from '../PostAvatar/post-avatar.component';
 import { SMPostHeaderComponent } from '../PostHeader/post-header.component';
 import { SMPostContentComponent } from '../PostContent/post-content.component';
 import { GlobalModule } from '../../Global/global.module';
+import { PostUsernameComponent } from '../PostUsername/post-username.component';
 
 @NgModule({
   declarations: [
     SMPostComponent,
     SMPostHeaderComponent,
     SMPostAvatarComponent,
-    SMPostContentComponent
+    SMPostContentComponent,
+    PostUsernameComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { GlobalModule } from '../../Global/global.module';
     SMPostComponent,
     SMPostAvatarComponent,
     SMPostHeaderComponent,
-    SMPostContentComponent
+    SMPostContentComponent,
+    PostUsernameComponent
   ]
 })
 export class PostModule { }

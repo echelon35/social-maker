@@ -3,36 +3,24 @@ import { IPostUser } from './IPostUser';
 import { SMPostComponent } from '../Post/post.component';
 import { IThreeDotsOptions } from '../../Global/three-dots/IThreeDotsOptions';
 
+export enum PostStyle {
+  LinkedIn = "LinkedIn",
+  Insta = "Insta",
+  Facebook = "Facebook",
+  x = "x"
+}
+
 @Component({
   selector: 'sm-post-header',
   templateUrl: './post-header.component.html',
   styleUrls: ['./post-header.component.css']
 })
 export class SMPostHeaderComponent {
-  @Input() user: IPostUser;
-  @Input() profileLink: string;
-  @Input() creationDate: string;
-  headerOptions: IThreeDotsOptions[] = [];
+  @Input() smlayout: keyof typeof PostStyle = "Insta";
 
   constructor(post: SMPostComponent){
     if (post === null){
-      throw new Error("PostUser can only be used inside of Post")
+      throw new Error("PostHeader can only be used inside of Post")
     }
-    const modify_img = new Image(); 
-    this.headerOptions = [
-      {
-        label: "Modifier",
-        callbackFunction: () => { window.location.href = 'localhost:4200'},
-        srcIcon: "/assets/lucidesvg/edit.svg"
-      },
-      {
-        label: "Supprimer",
-        callbackFunction: () => { console.log('Supprimer')}
-      },
-      {
-        label: "Signaler",
-        callbackFunction: () => { window.location.href = 'localhost:4200'}
-      },
-    ]
   }
 }

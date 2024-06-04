@@ -1,0 +1,7 @@
+p {
+    color: white;
+    cursor: pointer;
+}
+p:hover {
+    color: gray;
+}
