@@ -6,8 +6,8 @@
         <li></li>
     </ul>
     <!-- menu -->
-    <div id="myDropdown" class="dropdown-content">
-        <div class="dropdown-item" *ngFor="let item of options" >
+    <div id="{{id}}" class="dropdown-content">
+        <div class="dropdown-item" *ngFor="let item of options" (click)="onOptionClick(item)">
             {{item.icon}}
             <div class="dropdown-icon">
                 <img *ngIf="item.srcIcon && item.srcIcon != ''" src="{{item.srcIcon}}" />

@@ -1,4 +1,6 @@
 <div class="content">
-    <div class="post-description">{{this.postContent}}</div>
+    <p class="post-description">{{this.postContent | slice:0:this.maxTextSize }}
+        <span class="watch-more" *ngIf="this.postContent.length > maxTextSize" (click)="this.onClickOnMoreContent()">... Voir plus</span>
+    </p>
     <ng-content></ng-content>
 </div>

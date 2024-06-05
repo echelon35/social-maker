@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { IThreeDotsOptions } from './IThreeDotsOptions';
 
 @Component({
@@ -9,10 +9,12 @@ import { IThreeDotsOptions } from './IThreeDotsOptions';
 export class ThreeDotsComponent {
 
   @Input() options: IThreeDotsOptions[];
+  @Output() optionClicked: EventEmitter<IThreeDotsOptions> = new EventEmitter<IThreeDotsOptions>();
   @Input() name: string;
+  @Input() id: string;
 
   showDropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById(this.id).classList.toggle("show");
   }
 
   @HostListener('window:click', ['$event'])
@@ -27,6 +29,10 @@ export class ThreeDotsComponent {
             }
         }
     }
+  }
+
+  onOptionClick(item: IThreeDotsOptions): void {
+    this.optionClicked.emit(item)
   }
 
 }

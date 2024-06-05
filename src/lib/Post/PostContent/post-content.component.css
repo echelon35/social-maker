@@ -4,3 +4,8 @@
     padding: 10px 20px 10px 20px;
     background: grey;
 }
+.watch-more
+{
+    opacity: 0.8;
+    cursor: pointer;
+}

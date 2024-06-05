@@ -16,7 +16,6 @@ export class HideMissingPictureDirective {
   private onError() {
     if(!this.avoidErrorLoop){
       this.avoidErrorLoop = true;
-      console.log("en erreur")
       if(this.display){
         this.el.nativeElement.src = this.picturePath;
         this.el.nativeElement.title += " introuvable"
