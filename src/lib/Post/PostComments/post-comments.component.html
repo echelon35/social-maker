@@ -1,1 +1,20 @@
-<p>post-comments works!</p>
+<!-- Affichage des trois premiers commentaires-->
+<div class="card-footer bg-secondary d-flex flex-row align-items-center justify-content-between">
+    <!-- <div class="d-flex flex-row"> -->
+        <div *ngIf="nbLikes > 0" class="cursor-pointer" (click)="showReactions()">
+            <ng-container *ngFor="let reaction of likes" class="cursor-pointer">
+                <span *ngIf="reaction.reactionEmoji == 'like'" >{{reaction.reactionCount}} 👍 </span>
+                <span *ngIf="reaction.reactionEmoji == 'love'" >{{reaction.reactionCount}} 😍 </span>
+                <span *ngIf="reaction.reactionEmoji == 'laugh'" >{{reaction.reactionCount}} 😁 </span>
+                <span *ngIf="reaction.reactionEmoji == 'affraid'" >{{reaction.reactionCount}} 😮 </span>
+                <span *ngIf="reaction.reactionEmoji == 'encourage'" >{{reaction.reactionCount}} 👏 </span>
+            </ng-container>
+        </div>
+        <div *ngIf="nbLikes == 0">
+            {{nbLikes}} 👍
+        </div>
+        <div data-toggle="collapse" attr.href="#commentlist-{{this.id}}" role="button" aria-expanded="false" attr.aria-controls="commentlist-{{this.id}}">
+            {{nbComment}}
+        </div>
+    <!-- </div> -->
+</div>
