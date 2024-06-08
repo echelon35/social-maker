@@ -1,11 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ModalService } from '../../Global/services/modal.service';
-
-export type post_like = {
-  liked: boolean;
-  reactionEmoji: string;
-  userId: number;
-}
+import { post_like } from '../../Types/post_like.type';
 
 @Component({
   selector: 'sm-post-comments',
@@ -14,11 +9,14 @@ export type post_like = {
 })
 export class PostCommentsComponent {
   @Input() id: string;
-  @Input() nbLikes: number;
+  @Input() nbLikes: number = 0;
   @Input() nbComment: number;
   @Input() likes: post_like[];
+  @Input() userLike: post_like;
   modalsState: { [key: string]: boolean } = {};
   reactionsDisplayed: boolean = false;
+
+  likesGroupedByEmoji: { [key: string]: number } = {};
 
   constructor(private modalService: ModalService){}
 
@@ -27,7 +25,30 @@ export class PostCommentsComponent {
       this.modalsState[id] = state;
     });
 
-    console.log(this.nbLikes);
+  }
+
+  getEmojiKeys(): string[] {
+    return Object.keys(this.likesGroupedByEmoji);
+  }
+
+  ngOnChanges() {
+    this.groupLikesByEmoji();
+  }
+
+  groupLikesByEmoji() {
+    // Initialisation
+    this.likesGroupedByEmoji = {};
+
+    // Agrégation
+    this.likes.forEach(like => {
+      if (like.liked) {
+        if (this.likesGroupedByEmoji[like.reactionEmoji]) {
+          this.likesGroupedByEmoji[like.reactionEmoji]++;
+        } else {
+          this.likesGroupedByEmoji[like.reactionEmoji] = 1;
+        }
+      }
+    });
   }
 
   showReactions(){
@@ -52,4 +73,9 @@ export class PostCommentsComponent {
     // Add your confirm logic here
     this.modalService.close(id);
   }
+
+  likePost(type: string, like: boolean) {
+
+  }
+  
 }
