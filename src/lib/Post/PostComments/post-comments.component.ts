@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalService } from '../../Global/services/modal.service';
+import { post_like } from '../../Types/post_like.type';
 
-export type post_like = {
-  liked: boolean;
-  reactionEmoji: string;
-  userId: number;
+type reaction = {
+  like: boolean;
+  react: string;
 }
 
 @Component({
@@ -14,11 +14,15 @@ export type post_like = {
 })
 export class PostCommentsComponent {
   @Input() id: string;
-  @Input() nbLikes: number;
+  @Input() nbLikes: number = 0;
   @Input() nbComment: number;
   @Input() likes: post_like[];
+  @Input() userLike: post_like;
+  @Output() reactionClicked: EventEmitter<reaction> = new EventEmitter<reaction>();
   modalsState: { [key: string]: boolean } = {};
   reactionsDisplayed: boolean = false;
+
+  likesGroupedByEmoji: { [key: string]: number } = {};
 
   constructor(private modalService: ModalService){}
 
@@ -27,7 +31,30 @@ export class PostCommentsComponent {
       this.modalsState[id] = state;
     });
 
-    console.log(this.nbLikes);
+  }
+
+  getEmojiKeys(): string[] {
+    return Object.keys(this.likesGroupedByEmoji);
+  }
+
+  ngOnChanges() {
+    this.groupLikesByEmoji();
+  }
+
+  groupLikesByEmoji() {
+    // Initialisation
+    this.likesGroupedByEmoji = {};
+
+    // Agrégation
+    this.likes.forEach(like => {
+      if (like.liked) {
+        if (this.likesGroupedByEmoji[like.reactionEmoji]) {
+          this.likesGroupedByEmoji[like.reactionEmoji]++;
+        } else {
+          this.likesGroupedByEmoji[like.reactionEmoji] = 1;
+        }
+      }
+    });
   }
 
   showReactions(){
@@ -38,6 +65,10 @@ export class PostCommentsComponent {
     else{
       this.onClose('reactions-' + this.id)
     }
+  }
+
+  showReactionChoice(){
+    document.getElementById("reaction-container").classList.toggle("show");
   }
 
   openModal(id: string) {
@@ -52,4 +83,13 @@ export class PostCommentsComponent {
     // Add your confirm logic here
     this.modalService.close(id);
   }
+
+  likePost(react: string, like: boolean) {
+    const reaction = {
+      react: react,
+      like: like
+    }
+    this.reactionClicked.emit(reaction);
+  }
+  
 }
