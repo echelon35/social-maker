@@ -1,6 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalService } from '../../Global/services/modal.service';
 import { post_like } from '../../Types/post_like.type';
+
+type reaction = {
+  like: boolean;
+  react: string;
+}
 
 @Component({
   selector: 'sm-post-comments',
@@ -13,6 +18,7 @@ export class PostCommentsComponent {
   @Input() nbComment: number;
   @Input() likes: post_like[];
   @Input() userLike: post_like;
+  @Output() reactionClicked: EventEmitter<reaction> = new EventEmitter<reaction>();
   modalsState: { [key: string]: boolean } = {};
   reactionsDisplayed: boolean = false;
 
@@ -61,6 +67,10 @@ export class PostCommentsComponent {
     }
   }
 
+  showReactionChoice(){
+    document.getElementById("reaction-container").classList.toggle("show");
+  }
+
   openModal(id: string) {
     this.modalService.open(id);
   }
@@ -74,8 +84,12 @@ export class PostCommentsComponent {
     this.modalService.close(id);
   }
 
-  likePost(type: string, like: boolean) {
-
+  likePost(react: string, like: boolean) {
+    const reaction = {
+      react: react,
+      like: like
+    }
+    this.reactionClicked.emit(reaction);
   }
   
 }
